@@ -1,0 +1,9 @@
+module servicechainorchestrator {
+    yang-version 1.1;
+    namespace "urn:opendaylight:params:xml:ns:yang:servicechainorchestrator";
+    prefix "servicechainorchestrator";
+
+    revision "2018-05-17" { // TODO change revision to date of model creation
+        description "Initial revision of servicechainorchestrator model";
+    }
+}
