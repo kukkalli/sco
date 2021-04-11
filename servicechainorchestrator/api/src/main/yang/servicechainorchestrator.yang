@@ -1,9 +1,22 @@
 module servicechainorchestrator {
-    yang-version 1.1;
+    yang-version 1;
     namespace "urn:opendaylight:params:xml:ns:yang:servicechainorchestrator";
     prefix "servicechainorchestrator";
 
-    revision "2018-05-17" { // TODO change revision to date of model creation
+    revision "2021-04-11" {
         description "Initial revision of servicechainorchestrator model";
+    }
+
+    rpc hello-world {
+        input {
+            leaf name {
+                type string;
+            }
+        }
+        output {
+            leaf greeting {
+                type string;
+            }
+        }
     }
 }

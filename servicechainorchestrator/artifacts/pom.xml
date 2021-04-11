@@ -13,13 +13,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
   <parent>
     <groupId>org.opendaylight.odlparent</groupId>
     <artifactId>odlparent-lite</artifactId>
-    <version>6.0.4</version>
+    <version>7.0.7</version>
     <relativePath/>
   </parent>
 
   <groupId>de.tuchemnitz.kn</groupId>
   <artifactId>servicechainorchestrator-artifacts</artifactId>
-  <version>1.4.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <!-- <name> formatting is used by autorelease to parse and notify projects on
        build failure. Please do not modify this unless you have a good reason. -->
   <name>ODL :: de.tuchemnitz.kn :: ${project.artifactId}</name>
