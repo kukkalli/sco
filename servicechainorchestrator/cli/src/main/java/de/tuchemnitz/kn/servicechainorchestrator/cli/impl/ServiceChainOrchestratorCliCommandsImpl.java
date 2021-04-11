@@ -7,8 +7,8 @@
  */
 package de.tuchemnitz.kn.servicechainorchestrator.cli.impl;
 
-import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import de.tuchemnitz.kn.servicechainorchestrator.cli.api.ServiceChainOrchestratorCliCommands;
+import org.opendaylight.mdsal.binding.api.DataBroker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
