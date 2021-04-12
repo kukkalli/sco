@@ -7,7 +7,10 @@
  */
 package de.tuchemnitz.kn.servicechainorchestrator.impl;
 
-import org.opendaylight.controller.md.sal.binding.api.DataBroker;
+import org.opendaylight.mdsal.binding.api.DataBroker;
+import org.opendaylight.mdsal.binding.api.RpcProviderService;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.ServicechainorchestratorService;
+import org.opendaylight.yangtools.concepts.ObjectRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +19,12 @@ public class ServiceChainOrchestratorProvider {
     private static final Logger LOG = LoggerFactory.getLogger(ServiceChainOrchestratorProvider.class);
 
     private final DataBroker dataBroker;
+    private ObjectRegistration<ServicechainorchestratorService> servicechainorchestratorService;
+    private RpcProviderService rpcProviderService;
 
-    public ServiceChainOrchestratorProvider(final DataBroker dataBroker) {
+    public ServiceChainOrchestratorProvider(final DataBroker dataBroker, final RpcProviderService rpcProviderService) {
         this.dataBroker = dataBroker;
+        this.rpcProviderService = rpcProviderService;
     }
 
     /**
@@ -26,6 +32,7 @@ public class ServiceChainOrchestratorProvider {
      */
     public void init() {
         LOG.info("ServiceChainOrchestratorProvider Session Initiated");
+        servicechainorchestratorService = rpcProviderService.registerRpcImplementation(HelloService.class, new HelloWorldImpl());
     }
 
     /**
@@ -33,5 +40,8 @@ public class ServiceChainOrchestratorProvider {
      */
     public void close() {
         LOG.info("ServiceChainOrchestratorProvider Closed");
+        if (servicechainorchestratorService != null) {
+            servicechainorchestratorService.close();
+        }
     }
 }
