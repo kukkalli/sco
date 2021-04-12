@@ -102,5 +102,5 @@ mvn clean install -f dist
 
 ```
 $ docker run -d -p 8181:8181 -p 6633:6633 -p 6653:6653 --rm --name odl-sco kukkalli/odl-sco
-$ docker exec -ti sco bash
+$ docker exec -ti odl-sco bash
 ```
