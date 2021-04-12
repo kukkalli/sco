@@ -76,3 +76,31 @@ Define value for property 'copyright': : Copyright (c) 2020 Hanif Kukkalli
 ```
 mvn clean install
 ```
+
+## Developer environment
+
+
+* build artifacts
+
+```
+mvn clean install
+```
+
+* build installer
+
+```
+mvn clean install -f installer
+```
+
+* build distribution
+
+```
+mvn clean install -f dist
+```
+
+* run distribution
+
+```
+$ docker run -d -p 8181:8181 -p 6633:6633 -p 6653:6653 --rm --name sco odl-sco
+$ docker exec -ti sco bash
+```
