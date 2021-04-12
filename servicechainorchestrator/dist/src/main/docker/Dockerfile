@@ -5,7 +5,7 @@ ENV ODL_HOME /opt/opendaylight
 ENV JAVA_OPTS="-Xms512m -Xmx3g"
 ENV ODL_ADMIN_PASSWORD "admin"
 ENV SCO_REPO mvn:de.tuchemnitz.kn/features-servicechainorchestrator/${project.version}/xml/features
-ENV FEATURES_BOOT_INITIAL odl-mdsal-apidocs,features-servicechainorchestrator
+ENV FEATURES_BOOT_INITIAL odl-mdsal-apidocs,features-openflowplugin,features-servicechainorchestrator
 USER root
 
 # Install sudo and IP utilities
