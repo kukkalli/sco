@@ -53,19 +53,19 @@ Archetype versions:
 
 | OpenDaylight Simultaneous Release | opendaylight-startup-archetype version |
 | --------------------------------- | -------------------------------------- |
-| Aluminium Development             | 1.4.0-SNAPSHOT                         |
+| Aluminium SR1 Development             | 1.0.0-SNAPSHOT                         |
 
 
 OpenDaylight Simultaneous Release | opendaylight-startup-archetype version
 --- | ---
-*Aluminium Development* | 1.4.0-SNAPSHOT
+*Aluminium Development* | 1.0.0-SNAPSHOT
 
 - Update the properties values as follows. Ensure that the values for the groupId and the artifactId are in lower case.
 
 ```
 Define value for property 'groupId': : de.tuchemnitz.kn
 Define value for property 'artifactId': : servicechainorchestrator
-Define value for property 'version':  1.0-SNAPSHOT: : 1.4.0-SNAPSHOT
+Define value for property 'version':  1.0-SNAPSHOT: : 1.0.0-SNAPSHOT
 Define value for property 'package':  org.opendaylight.example: : de.tuchemnitz.kn.servicechainorchestrator
 Define value for property 'classPrefix':  ServiceChainOrchestrator
 Define value for property 'copyright': : Copyright (c) 2020 Hanif Kukkalli
