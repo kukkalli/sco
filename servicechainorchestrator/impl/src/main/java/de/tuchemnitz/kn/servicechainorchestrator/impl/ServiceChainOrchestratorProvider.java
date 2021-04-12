@@ -32,7 +32,8 @@ public class ServiceChainOrchestratorProvider {
      */
     public void init() {
         LOG.info("ServiceChainOrchestratorProvider Session Initiated");
-        servicechainorchestratorService = rpcProviderService.registerRpcImplementation(HelloService.class, new HelloWorldImpl());
+        servicechainorchestratorService = rpcProviderService.registerRpcImplementation(
+                HelloService.class, new HelloWorldImpl());
     }
 
     /**
