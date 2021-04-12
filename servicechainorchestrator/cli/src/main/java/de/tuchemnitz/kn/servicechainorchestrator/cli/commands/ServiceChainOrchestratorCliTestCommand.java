@@ -7,10 +7,10 @@
  */
 package de.tuchemnitz.kn.servicechainorchestrator.cli.commands;
 
+import de.tuchemnitz.kn.servicechainorchestrator.cli.api.ServiceChainOrchestratorCliCommands;
 import org.apache.karaf.shell.commands.Command;
 import org.apache.karaf.shell.commands.Option;
 import org.apache.karaf.shell.console.AbstractAction;
-import de.tuchemnitz.kn.servicechainorchestrator.cli.api.ServiceChainOrchestratorCliCommands;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
