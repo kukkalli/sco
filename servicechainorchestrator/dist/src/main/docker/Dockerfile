@@ -44,4 +44,4 @@ WORKDIR /opt/opendaylight
 
 CMD [ "/bin/bash" ]
 ENTRYPOINT [ "/opt/onap/sdnc/bin/startODL.sh" ]
-EXPOSE 8181 1090 1099 6633 6653
+EXPOSE 8181 1090 1099 6633 6653 6640
