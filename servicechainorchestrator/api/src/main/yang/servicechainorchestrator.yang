@@ -20,7 +20,7 @@ module servicechainorchestrator {
     		    		type string;
     		    	}
     		    	leaf flavour {
-    		    		type empty;
+    		    		type string;
     		    	}   	
     		    	leaf image_id {
     		    		type string;
@@ -29,7 +29,7 @@ module servicechainorchestrator {
     		    		type string;
     		    	}
     		    	leaf ip_address {
-    		    		type empty;
+    		    		type string;
     		    	}
     		    }
     			list virtual-link {

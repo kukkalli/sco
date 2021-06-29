@@ -26,7 +26,8 @@ public class ServiceChainOrchestratorImpl implements ServicechainorchestratorSer
     @Override
     public ListenableFuture<RpcResult<CreateServiceChainOutput>> createServiceChain(CreateServiceChainInput input) {
         CreateServiceChainOutputBuilder createBuilder = new CreateServiceChainOutputBuilder();
-        createBuilder.setGreeting("VMs and virtual links template" + input.getName());
+        createBuilder.setGreeting("Hello" + input.getName());
+        createBuilder.setGreeting("VMs and virtual links template" + input.getVms());
         LOG.info("IMPL triggered for service chain");
         return RpcResultBuilder.success(createBuilder.build()).buildFuture();
     }
