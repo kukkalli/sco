@@ -5,24 +5,19 @@ module servicechainorchestrator {
 
     revision "2021-04-11" {
         description "Initial revision of servicechainorchestrator model";
-    }
-       
-    
+    } 
     rpc create-service-chain {
     	input {
     		leaf name {
     			type string;
     		}
     		container vms {
-    			list vm-requirement{
-    				leaf id {
+    			list vm-requirement {
+    				leaf int_id {
     		    		type int32;
     		    	}
     		    	leaf hostname {
     		    		type string;
-    		    	}
-    		    	leaf init_id {
-    		    		type empty;
     		    	}
     		    	leaf flavour {
     		    		type empty;
@@ -33,43 +28,34 @@ module servicechainorchestrator {
     		    	leaf network_id {
     		    		type string;
     		    	}
-    		    	leaf keypair {
-    		    		type string;
-    		    	}
     		    	leaf ip_address {
     		    		type empty;
     		    	}
-    			}
+    		    }
     			list virtual-link {
-    				leaf id {
-    		    		type int32;
+    				leaf _id {
+    		    		type string;
     		    	}
     		    	leaf int_id {
     		    		type int32;
     		    	}
-    		    	leaf dst-node {
+    		    	leaf dst_node {
     		    		type int32;
     		    	}
-    		    	leaf src-node {
+    		    	leaf src_node {
     		    		type int32;
     		    	}   	
     		    	leaf bandwidth {
     		    		type int32;
     		    	}
-    		    	leaf src-port {
+    		    	leaf max_link_delay {
     		    		type int32;
-    		    	}
-    		    	leaf keypair {
-    		    		type string;
-    		    	}
-    		    	leaf ip_address {
-    		    		type empty;
     		    	}
     			}
     		}
     	}
     	output {
-    		leaf greeting{
+    		leaf greeting {
     			type string;
     		}
     	}
