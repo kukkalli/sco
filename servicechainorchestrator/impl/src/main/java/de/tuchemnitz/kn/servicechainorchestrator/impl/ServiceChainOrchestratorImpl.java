@@ -8,6 +8,9 @@
 package de.tuchemnitz.kn.servicechainorchestrator.impl;
 
 import com.google.common.util.concurrent.ListenableFuture;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.CreateServiceChainInput;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.CreateServiceChainOutput;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.CreateServiceChainOutputBuilder;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.HelloWorldInput;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.HelloWorldOutput;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.servicechainorchestrator.rev210411.HelloWorldOutputBuilder;
@@ -19,6 +22,14 @@ import org.slf4j.LoggerFactory;
 
 public class ServiceChainOrchestratorImpl implements ServicechainorchestratorService {
     private static final Logger LOG = LoggerFactory.getLogger(ServiceChainOrchestratorImpl.class);
+
+    @Override
+    public ListenableFuture<RpcResult<CreateServiceChainOutput>> createServiceChain(CreateServiceChainInput input) {
+        CreateServiceChainOutputBuilder createBuilder = new CreateServiceChainOutputBuilder();
+        createBuilder.setGreeting("VMs and virtual links template" + input.getVms());
+        LOG.info("IMPL triggered for service chain");
+        return RpcResultBuilder.success(createBuilder.build()).buildFuture();
+    }
 
     @Override
     public ListenableFuture<RpcResult<HelloWorldOutput>> helloWorld(HelloWorldInput input) {

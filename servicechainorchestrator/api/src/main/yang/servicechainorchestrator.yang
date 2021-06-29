@@ -6,7 +6,75 @@ module servicechainorchestrator {
     revision "2021-04-11" {
         description "Initial revision of servicechainorchestrator model";
     }
-
+       
+    
+    rpc create-service-chain {
+    	input {
+    		leaf name {
+    			type string;
+    		}
+    		container vms {
+    			list vm-requirement{
+    				leaf id {
+    		    		type int32;
+    		    	}
+    		    	leaf hostname {
+    		    		type string;
+    		    	}
+    		    	leaf init_id {
+    		    		type empty;
+    		    	}
+    		    	leaf flavour {
+    		    		type empty;
+    		    	}   	
+    		    	leaf image_id {
+    		    		type string;
+    		    	}
+    		    	leaf network_id {
+    		    		type string;
+    		    	}
+    		    	leaf keypair {
+    		    		type string;
+    		    	}
+    		    	leaf ip_address {
+    		    		type empty;
+    		    	}
+    			}
+    			list virtual-link {
+    				leaf id {
+    		    		type int32;
+    		    	}
+    		    	leaf int_id {
+    		    		type int32;
+    		    	}
+    		    	leaf dst-node {
+    		    		type int32;
+    		    	}
+    		    	leaf src-node {
+    		    		type int32;
+    		    	}   	
+    		    	leaf bandwidth {
+    		    		type int32;
+    		    	}
+    		    	leaf src-port {
+    		    		type int32;
+    		    	}
+    		    	leaf keypair {
+    		    		type string;
+    		    	}
+    		    	leaf ip_address {
+    		    		type empty;
+    		    	}
+    			}
+    		}
+    	}
+    	output {
+    		leaf greeting{
+    			type string;
+    		}
+    	}
+    }
+    
     rpc hello-world {
         input {
             leaf name {
