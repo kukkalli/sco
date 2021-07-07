@@ -6,6 +6,48 @@ module servicechainorchestrator {
     revision "2021-04-11" {
         description "Initial revision of servicechainorchestrator model";
     } 
+    
+    rpc create-v-m {
+    	input {
+    		container  cvm {
+    			list c-virtual-machine {
+    				leaf name {
+    					type string;
+    				}
+    				leaf image {
+    					type string;
+    				}
+    				leaf flavour {
+    					type int32;
+    				}
+    				leaf min_count {
+    					type int32;
+    				}
+    				leaf max_count {
+    					type int32;
+    				}
+    				leaf security_groups {
+    					type string;
+    				}
+    				leaf key_pair {
+    					type string;
+    				}
+    				leaf networks {
+    					type string;
+    				}
+    				leaf host {
+    					type string;
+    				}
+    			}
+    		}
+    	}
+    	output {
+    		leaf vm_attributes {
+    			type string;
+    		}
+    	}
+    }
+    
     rpc create-service-chain {
     	input {
     		leaf name {

@@ -22,8 +22,7 @@ import org.opendaylight.yangtools.yang.common.RpcResult;
 import org.opendaylight.yangtools.yang.common.RpcResultBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.openstack4j.api.OSClient;
-import org.openstack4j.openstack.OSFactory;
+
 
 public class ServiceChainOrchestratorImpl implements ServicechainorchestratorService {
     private static final Logger LOG = LoggerFactory.getLogger(ServiceChainOrchestratorImpl.class);
@@ -32,26 +31,27 @@ public class ServiceChainOrchestratorImpl implements ServicechainorchestratorSer
     public ListenableFuture<RpcResult<CreateVMOutput>> createVM(CreateVMInput input) {
         CreateVMOutputBuilder virtualBuilder = new CreateVMOutputBuilder();
         virtualBuilder.setVmAttributes("Initializing with values" + input.getCvm());
-        OSClient os = OSFactory.builder()
-                .endpoint("http://127.0.0.1:5000/v2.0")
-                .credentials("admin", "test")
-                .tenantName("admin")
-                .authenticate();
-        LOG.info("IMPL triggered for service chain");        
+        LOG.info("IMPL triggered for service chain");
         return RpcResultBuilder.success(virtualBuilder.build()).buildFuture();
     }
 
     @Override
     public ListenableFuture<RpcResult<CreateServiceChainOutput>> createServiceChain(CreateServiceChainInput input) {
         CreateServiceChainOutputBuilder createBuilder = new CreateServiceChainOutputBuilder();
-        OSClient os = OSFactory.builder()
-                .endpoint("http://127.0.0.1:5000/v2.0")
-                .credentials("admin", "test")
-                .tenantName("admin")
-                .authenticate();
-        List<? extends User> users = os.identity().users().list();
-        createBuilder.setGreeting("Hello" + users[0]);
         createBuilder.setGreeting("VMs and virtual links template" + input.getVms());
+        PasswordCredentials passwordCredentials = new PasswordCredentials();
+        passwordCredentials.setUsername("admin");
+        passwordCredentials.setPassword("tuckn2020");
+        Authentication authentication = new Authentication();
+        authentication.setPasswordCredentials(passwordCredentials);
+        KeystoneClient keystone = new KeystoneClient("http://10.10.0.21:5000/v3/");
+        //access with unscoped token
+        Access access = keystone.execute(new Authenticate(authentication));
+
+        //use the token in the following requests
+        keystone.setToken(access.getToken().getId());
+
+        Tenants tenants = keystone.execute(new ListTenants());
         LOG.info("IMPL triggered for service chain");
         return RpcResultBuilder.success(createBuilder.build()).buildFuture();
     }
